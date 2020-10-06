@@ -1,20 +1,6 @@
 {
   "products": [
     {
-      "nama": "Baju Baru",
-      "kode": "0012321",
-      "stok": "220",
-      "harga": "90000",
-      "id": 1601538391099
-    },
-    {
-      "nama": "Baju Baru Banget",
-      "kode": "14123123",
-      "stok": "2121",
-      "harga": "900000",
-      "id": 1601538411725
-    },
-    {
       "nama": "Kemeja hias",
       "kode": "038742",
       "stok": "39",

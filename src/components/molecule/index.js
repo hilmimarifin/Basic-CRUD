@@ -1,5 +1,6 @@
 import Navbar from './navbar'
+import Modal from './modals'
 
 
 
-export {Navbar}
+export {Navbar, Modal}

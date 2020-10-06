@@ -1,6 +1,7 @@
 import Axios from 'axios'
 import React,{useEffect, useState} from 'react'
 import {  useHistory } from 'react-router-dom'
+import { Modal } from '../../components'
 import { Button, Gap, InputForm } from '../../components/atom'
 
 
@@ -21,6 +22,7 @@ const Products = () => {
     useEffect(() => {
         getData()
         },[])
+
 
 
     const handleDelete = (data) => {
@@ -90,7 +92,6 @@ const ProductHeader = ({Products,...rest}) => {
 
 const ProductList = (props) => {
 
-
     return(
         <div className="container flex justify-center align-middle">
             <table className="table-auto border border-gray-400 rounded-lg ">
@@ -112,12 +113,14 @@ const ProductList = (props) => {
                             <td className="px-10 py-5">{anyproduct.kode}</td>
                             <td className="px-10 py-5">{anyproduct.stok}</td>
                             <td className="px-10 py-5">{anyproduct.harga}</td>
-                            <td className="px-10 py-5  flex flex-row"><Button label="Edit" onClick={()=> props.edit(anyproduct)}/><Gap width={20}/><Button label="Delete" onClick={()=>props.delete(anyproduct)}/></td>
+                            <td className="px-10 py-5  flex flex-row"><Button label="Edit" onClick={()=> props.edit(anyproduct)}/><Gap width={20}/><Modal bodyMessage={`Yakin ingin menghapus ${anyproduct.nama}?`} yes={()=>props.delete(anyproduct)}/></td>
                         </tr>)
                     } )}
                 </tbody> 
             </table>
+            {/* <Modal show={props.modal}/> */}
         </div>
+       
     )
 }
 
