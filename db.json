@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "nama": "Baju Baru",
+      "kode": "0012321",
+      "stok": "220",
+      "harga": "90000",
+      "id": 1601538391099
+    },
+    {
+      "nama": "Baju Baru Banget",
+      "kode": "14123123",
+      "stok": "2121",
+      "harga": "900000",
+      "id": 1601538411725
+    },
+    {
+      "nama": "Kemeja hias",
+      "kode": "038742",
+      "stok": "39",
+      "harga": "60000",
+      "id": 1601557603030
+    },
+    {
+      "nama": "Kemeja Oplos",
+      "kode": "330212",
+      "stok": "200",
+      "harga": "200000",
+      "id": 1601874638896
+    },
+    {
+      "nama": "Jaket Kurta",
+      "kode": "156871263",
+      "stok": "900",
+      "harga": "200000",
+      "id": 1601948564371
+    },
+    {
+      "nama": "Kemeja Omnibus",
+      "kode": "598721",
+      "stok": "700",
+      "harga": "900000",
+      "id": 1601948594451
+    }
+  ]
+}
