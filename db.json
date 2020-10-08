@@ -22,11 +22,32 @@
       "id": 1601948564371
     },
     {
-      "nama": "Kemeja Omnibus",
-      "kode": "598721",
-      "stok": "700",
+      "nama": "Kemeja Lipat",
+      "kode": "6172368721",
+      "stok": "800",
       "harga": "900000",
-      "id": 1601948594451
+      "id": 1602053156866
+    },
+    {
+      "nama": "Kaos Hitam",
+      "kode": "87678",
+      "stok": "800000",
+      "harga": "970000",
+      "id": 1602053200009
+    },
+    {
+      "nama": "Hilmi",
+      "kode": "Muhamad",
+      "stok": "9000",
+      "harga": "6000000",
+      "id": 1602053200010
+    },
+    {
+      "nama": "lionel Messi",
+      "kode": "andreas",
+      "stok": "80000",
+      "harga": "10000",
+      "id": 1602053200012
     }
   ]
 }

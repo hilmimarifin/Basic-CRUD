@@ -1,5 +1,6 @@
 import Axios from 'axios'
 import React,{useEffect, useState} from 'react'
+import { useForm } from 'react-hook-form'
 import {  useHistory } from 'react-router-dom'
 import { Modal } from '../../components'
 import { Button, Gap, InputForm } from '../../components/atom'
@@ -9,16 +10,14 @@ const Products = () => {
 
     const [products, setProducts] = useState([])
 
-    const getData = () => { Axios.get('http://localhost:4000/products')
+    const getData = () => { Axios.get('http://localhost:4000/products?_sort=id&_order=desc')
     .then((result)=> {
         setProducts(result.data)
     })
 
     }
     
-    const getSpecificData = () => { Axios.get(`http://localhost:4000/products?nama=${filterValue}`).then((result) => {setProducts(result.data)})
-
-    }
+  
     useEffect(() => {
         getData()
         },[])
@@ -43,17 +42,17 @@ const Products = () => {
         setFilterValue(e.target.value)
     }
 
+    const getSpecificData = (data) => { Axios.get(`http://localhost:4000/products?nama=${data}`).then((result) => {setProducts(result.data)})
 
-    const handleSearchButton = () => {
-    
-       getSpecificData()
-
+    }
+    const handleSearchButton = (data) => {
+       getSpecificData(data.cariProduk)
     }
   
     const history = useHistory()
     return (
         <div>
-            <Filter change = {handleChangeFilter} search={handleSearchButton} />
+            <Filter change = {handleChangeFilter} search={(data)=>handleSearchButton(data) }/>
             <Gap height={52}/>
             <ProductHeader Products={products} onClick={()=>history.push('/products/add')}/>
             <Gap height={23}/>
@@ -64,16 +63,19 @@ const Products = () => {
 
 const Filter = (props) => {
 
+const {register, handleSubmit, errors} = useForm();
 
 
+const onSubmit = (data) => props.search(data)
     return(
-        <div>
-            <div className="flex flex-row">
-                <Gap width={1000}/>
-                <InputForm onChange={props.change} placeholder="Nama Produk"/>
-                <Gap width={20}/>
-                <Button onClick={props.search} label="Cari" />
-            </div>
+        <div className="flex flex-row-reverse">
+            
+                <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} className="flex flex-row" >
+                    <InputForm ref={register({required: true})} name="cariProduk" placeholder="Nama Produk"/>
+                    <Gap width={20}/>
+                    <Button type="submit" label="Cari" />
+                </form>
+            
         </div>
     )
 }
