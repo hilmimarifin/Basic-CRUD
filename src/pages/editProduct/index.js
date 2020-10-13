@@ -2,7 +2,7 @@ import Axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import { useForm } from 'react-hook-form'
 import {  useHistory, useParams } from 'react-router-dom'
-import { Button, Gap, InputForm } from '../../components'
+import { Button, InputForm } from '../../components'
 
 const EditProduct = () => {
     const {id} = useParams()

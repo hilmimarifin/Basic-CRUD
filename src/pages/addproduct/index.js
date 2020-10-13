@@ -1,8 +1,8 @@
 import Axios from 'axios'
-import React, {useState} from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { Button, Gap, InputForm } from '../../components'
+import { Button, InputForm } from '../../components'
 
 const AddProduct = () => {
     // const attribut = {

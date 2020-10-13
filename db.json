@@ -48,6 +48,20 @@
       "stok": "80000",
       "harga": "10000",
       "id": 1602053200012
+    },
+    {
+      "nama": "kai",
+      "kode": "haversts",
+      "stok": "132123",
+      "harga": "123102313",
+      "id": 1602053200013
+    },
+    {
+      "nama": "Baju butut",
+      "kode": "jaksdjflklj",
+      "stok": "90000",
+      "harga": "20000",
+      "id": 1602053200014
     }
   ]
 }

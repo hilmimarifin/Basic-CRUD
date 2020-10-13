@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import {  useHistory } from 'react-router-dom'
 import { Modal } from '../../components'
 import { Button, Gap, InputForm } from '../../components/atom'
+import {useSelector} from 'react-redux'
 
 
 const Products = () => {
@@ -37,10 +38,7 @@ const Products = () => {
 
     }
     
-    const [filterValue, setFilterValue] = useState('')
-    const handleChangeFilter = (e) => {
-        setFilterValue(e.target.value)
-    }
+ 
 
     const getSpecificData = (data) => { Axios.get(`http://localhost:4000/products?nama=${data}`).then((result) => {setProducts(result.data)})
 
@@ -50,9 +48,12 @@ const Products = () => {
     }
   
     const history = useHistory()
+
+    const dataUser = useSelector(state => state.UserData)
     return (
         <div>
-            <Filter change = {handleChangeFilter} search={(data)=>handleSearchButton(data) }/>
+            <h1>Hai, {dataUser.username}</h1>
+            <Filter  search={(data)=>handleSearchButton(data) }/>
             <Gap height={52}/>
             <ProductHeader Products={products} onClick={()=>history.push('/products/add')}/>
             <Gap height={23}/>
@@ -63,7 +64,7 @@ const Products = () => {
 
 const Filter = (props) => {
 
-const {register, handleSubmit, errors} = useForm();
+const {register, handleSubmit} = useForm();
 
 
 const onSubmit = (data) => props.search(data)
