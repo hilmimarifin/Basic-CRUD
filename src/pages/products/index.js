@@ -5,6 +5,9 @@ import {  useHistory } from 'react-router-dom'
 import { Modal } from '../../components'
 import { Button, Gap, InputForm } from '../../components/atom'
 import {useSelector} from 'react-redux'
+import { useDispatch} from 'react-redux'
+import { addToChart } from '../../redux/actions'
+
 
 
 const Products = () => {
@@ -38,8 +41,6 @@ const Products = () => {
 
     }
     
- 
-
     const getSpecificData = (data) => { Axios.get(`http://localhost:4000/products?nama=${data}`).then((result) => {setProducts(result.data)})
 
     }
@@ -93,21 +94,47 @@ const ProductHeader = ({Products,...rest}) => {
     )
 }
 
+
+
+
 const ProductList = (props) => {
+    const dispatch = useDispatch();
+    const chart = useSelector(state => state.ShoppingChart);
+ 
+
+    
+   
+    const handleAddToChart = (anyproduct) =>{
+        const chartID = new Date().getTime()
+        const newChart = { nama : anyproduct.nama,
+                            kode : anyproduct.kode,
+                            stok : anyproduct.stok,
+                            harga: anyproduct.harga,
+                            quantity: 1,
+                            id: anyproduct.id,
+                            chartID: chartID}
+         
+        
+        dispatch(addToChart(newChart));
+       
+        
+        console.log('ini chart',chart);
+    };
+
 
     return(
         <div className="container flex justify-center align-middle">
-            <table className="table-auto border border-gray-400 rounded-lg ">
-                <thead>
-                   <tr className="bg-gray-300 rounded-lg">
-                       <th className="px-10 py-5">Nama Produk</th>
-                       <th className="px-10 py-5">Kode</th>
-                       <th className="px-10 py-5">Stok</th>
-                       <th className="px-10 py-5">Harga</th>
-                       <th className="px-10 py-5">Aksi</th>
-                       
-                   </tr>
-                </thead>
+                <table className="table-auto border border-gray-400 rounded-lg ">
+                    <thead>
+                    <tr className="bg-gray-300 rounded-lg">
+                        <th className="px-10 py-5">Nama Produk</th>
+                        <th className="px-10 py-5">Kode</th>
+                        <th className="px-10 py-5">Stok</th>
+                        <th className="px-10 py-5">Harga</th>
+                        <th className="px-10 py-5">Aksi</th>
+                        
+                    </tr>
+                    </thead>
                 <tbody>
                     {props.products.map((anyproduct) => {
                         return(
@@ -116,7 +143,11 @@ const ProductList = (props) => {
                             <td className="px-10 py-5">{anyproduct.kode}</td>
                             <td className="px-10 py-5">{anyproduct.stok}</td>
                             <td className="px-10 py-5">{anyproduct.harga}</td>
-                            <td className="px-10 py-5  flex flex-row"><Button label="Edit" onClick={()=> props.edit(anyproduct)}/><Gap width={20}/><Modal bodyMessage={`Yakin ingin menghapus ${anyproduct.nama}?`} yes={()=>props.delete(anyproduct)}/></td>
+                            <td className="px-10 py-5  flex flex-row">
+                                <Button label="Edit" onClick={()=> props.edit(anyproduct)} mx={5}/>
+                                <Modal bodyMessage={`Yakin ingin menghapus ${anyproduct.nama}?`} yes={()=>props.delete(anyproduct)}/>
+                                <Button label="+" mx={5} onClick={()=> handleAddToChart(anyproduct)}/>
+                            </td>
                         </tr>)
                     } )}
                 </tbody> 
