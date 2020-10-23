@@ -7,7 +7,7 @@ export default function Modal(props) {
 
   return (
     <>
-      <Button label="Delete" onClick={()=> setShowModal(true)}/>
+      <Button label="Delete" onClick={()=> setShowModal(true) } width={props.width} mx={props.mx}/>
       
       {showModal ? (
         <>

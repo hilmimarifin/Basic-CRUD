@@ -3,6 +3,8 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { Button, InputForm } from '../../components'
+import { useDispatch } from 'react-redux'
+import { addProducts } from '../../redux/actions'
 
 const AddProduct = () => {
     // const attribut = {
@@ -56,8 +58,13 @@ const AddProduct = () => {
     // }
 
     const { register, handleSubmit, watch, errors } = useForm();
-    const onSubmit = data => Axios.post('http://localhost:4000/products', data).then((res) =>{ history.push('/products')}, (err) => {console.log('error', err)});
+    const onSubmit = data => Axios.post('http://localhost:4000/products', data)
+      .then((res) =>{ return res.data }, (err) => {console.log('error', err)})
+      .then((data2)=> dispatch(addProducts(data2)) )
+      .then(()=> { history.push('/products')});
+
     const history = useHistory()
+    const dispatch = useDispatch()
   console.log(watch("data")); // watch input value by passing the name of it
 
   return (

@@ -48,4 +48,24 @@ export const addTransaction = (chartdata) => {
     }
 }
 
+//PRODUCTS DATA REDUCER
+export const getProducts = (chartdata) => {
+    return {
+        type : "GET_PRODUCTS",
+        payload : chartdata
+    }
+}
+export const addProducts = (chartdata) => {
+    return {
+        type : "ADD_PRODUCTS",
+        payload : chartdata
+    }
+}
+export const deleteProducts = (chartdata) => {
+    return {
+        type : "REMOVE_PRODUCTS",
+        payload : chartdata
+    }
+}
+
 

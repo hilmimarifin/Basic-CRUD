@@ -1,53 +1,25 @@
 {
   "products": [
     {
-      "nama": "Kemeja hias",
-      "kode": "038742",
-      "stok": "39",
-      "harga": "60000",
-      "id": 1601557603030
+      "nama": "musk lilian",
+      "kode": "779",
+      "stok": "10",
+      "harga": "20000",
+      "id": 1601948564373
     },
     {
-      "nama": "Kemeja Oplos",
-      "kode": "330212",
-      "stok": "200",
-      "harga": "200000",
-      "id": 1601874638896
+      "nama": "dior sauvage",
+      "kode": "887",
+      "stok": "11",
+      "harga": "50000",
+      "id": 1601948564374
     },
     {
-      "nama": "Jaket Kurta",
-      "kode": "156871263",
-      "stok": "900",
-      "harga": "200000",
-      "id": 1601948564371
-    },
-    {
-      "nama": "Kemeja Lipat",
-      "kode": "6172368721",
-      "stok": "800",
-      "harga": "1000000",
-      "id": 1602053156866
-    },
-    {
-      "nama": "Kaos Hitam",
-      "kode": "87678",
-      "stok": "800000",
+      "nama": "barakuda",
+      "kode": "889",
+      "stok": "10",
       "harga": "100000",
-      "id": 1602053200009
-    },
-    {
-      "nama": "Hilmi",
-      "kode": "Muhamad",
-      "stok": "9000",
-      "harga": "10000",
-      "id": 1602053200010
-    },
-    {
-      "nama": "werner",
-      "kode": "browkids",
-      "stok": "100",
-      "harga": "1000",
-      "id": 1602053200011
+      "id": 1601948564375
     }
   ]
 }

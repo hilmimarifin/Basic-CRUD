@@ -1,10 +1,13 @@
 import React from 'react'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
-import { AddProduct, EditProduct, Home, Login, Products } from '../../pages'
+import { AddProduct, EditProduct, Home, Login, Products, Cart } from '../../pages'
 import { useDispatch, useSelector } from 'react-redux'
 import { signingOut } from '../../redux/actions'
 import PrivateRoute from './privateRoute'
 import { Navbar } from '../../components'
+import HomeIcon from '../../asset/icon/Home'
+import ProductIcon from '../../asset/icon/ProductIcon'
+import { ShoppingChartIcon, UserIcon } from '../../asset/icon'
 
 const Routes = () => {
     const dispatch = useDispatch();
@@ -14,23 +17,27 @@ const Routes = () => {
     return (
         <div>
             <Router>
-                <div>
-                    <Navbar>
-                        <Link to="/" className=" text-gray-300 flex items-center mr-6">Home</Link>
-                        <Link to="/products"className="text-gray-300 flex items-center">Products</Link>
-                        <p className="text-gray-300 flex items-center ml-6"  onClick={ () => handleClick() }>log out</p>       
-                    </Navbar>
-                </div>
-                <div className="container-md px-24 pb-24 pt-10">
-                    <Switch>
-                        <Route path="/login" component={Login}/>    
-                        <Route path="/products/add" component={AddProduct}/>
-                        <Route path="/products/:id" component={EditProduct}/>
-                        <Route path="/products" component={Products}/>
-                        <Route path="/" component={Home}/>
-                    </Switch>
+               <div className="flex flex-col min-h-screen">
+                    <div className="flex-grow">
+                        <Switch>
+                            <Route path="/cart" component={Cart}/>   
+                            <Route path="/login" component={Login}/>    
+                            <Route path="/products/add" component={AddProduct}/>
+                            <Route path="/products/:id" component={EditProduct}/>
+                            <Route path="/products" component={Products}/>
+                            <Route path="/" component={Home}/>
+                        </Switch>
 
-                </div>
+                    </div>
+                    <div className="sticky bottom-0">
+                        <Navbar border={`border-t border-gray-400`}>
+                            <Link to="/" className="flex  flex-1 items-center"><HomeIcon/></Link>
+                            <Link to="/products"className="flex flex-1 items-center"><ProductIcon /></Link>
+                            <Link to="/cart" className="flex  flex-1 items-center"><ShoppingChartIcon/></Link>
+                            <div className={`flex flex-1 items-center`}><UserIcon onClick={ () => handleClick() }/></div>
+                        </Navbar>
+                    </div>
+               </div>
             </Router>
             
         </div>

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Button = ({label,my,mx,py,px, ...rest}) => {
+const Button = ({label,my,mx,py,px,width,...rest}) => {
     return (
         <div>
-            <button className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-${py||2} px-${px||4} my-${my} mx-${mx} rounded`} {...rest}>
+            <button className={`  border border-gray-600 rounded-lg hover:bg-blue-700 text-gray-600 font-bold w-${width} py-${py||2} px-${px||4} my-${my} mx-${mx} rounded `} {...rest}>
             {label}
         </button>
 
