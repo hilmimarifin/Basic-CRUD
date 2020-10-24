@@ -11,9 +11,6 @@ const ProductsData = (state = data, action) => {
         case 'REMOVE_PRODUCTS':
             const test = state.filter((newState)=> {return newState.id !== action.payload})
             return state = test
-        case 'SET_QUANTITY':
-            return state = action.payload
-        
         default :
             return state    
     }
